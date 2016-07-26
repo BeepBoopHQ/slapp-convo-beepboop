@@ -1,3 +1,5 @@
+'use strict'
+
 const persist = require('beepboop-persist')
 
 /**
