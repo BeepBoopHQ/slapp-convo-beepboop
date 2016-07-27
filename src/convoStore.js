@@ -1,3 +1,5 @@
+'use strict'
+
 const persist = require('beepboop-persist')
 
 /**
@@ -10,7 +12,7 @@ const persist = require('beepboop-persist')
  */
 
 module.exports = class ConvoStore {
-  constructor(opts) {
+  constructor (opts) {
     this.kv = persist(opts)
     this.keyPrefix = opts.keyPrefix || 'convo::'
   }
@@ -27,8 +29,8 @@ module.exports = class ConvoStore {
    * - `callback` function  - (error) => {}
    */
 
-  set(id, params, callback) {
-    if (!callback) callback = (() => {})
+  set (id, params, callback) {
+    if (!callback) callback = () => {}
     params.id = id
     this.kv.set(this.keyPrefix + id, params, callback)
   }
@@ -41,7 +43,7 @@ module.exports = class ConvoStore {
    * - `callback` function  - (error, value) => {}
    */
 
-  get(id, callback) {
+  get (id, callback) {
     this.kv.get(this.keyPrefix + id, (err, val) => {
       if (err) {
         return callback(err)
@@ -54,7 +56,7 @@ module.exports = class ConvoStore {
       // Check if the value is expired. If it is expired, delete it and return
       // null. The persist key/value store doesn't support expiration of keys yet
       if (val.expire > 0 && val.expire < Date.now()) {
-        this.kv.del(this.keyPrefix + id, (err) => {
+        this.kv.del(this.keyPrefix + id, (_err) => {
           return callback(null, null)
         })
       }
@@ -71,8 +73,8 @@ module.exports = class ConvoStore {
    * - `callback` function  - (error) => {}
    */
 
-  del(id, callback) {
-    if (!callback) callback = (() => {})
+  del (id, callback) {
+    if (!callback) callback = () => {}
     this.kv.del(this.keyPrefix + id, callback)
   }
 
