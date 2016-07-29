@@ -1,6 +1,6 @@
 {
   "name": "slapp-convo-beepboop",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "slapp conversation store implementation that uses the BeepBoop key/value store persist service",
   "main": "index.js",
   "scripts": {
