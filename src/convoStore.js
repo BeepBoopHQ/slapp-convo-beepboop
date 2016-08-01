@@ -13,6 +13,7 @@ const persist = require('beepboop-persist')
 
 module.exports = class ConvoStore {
   constructor (opts) {
+    opts = opts || {}
     this.kv = persist(opts)
     this.keyPrefix = opts.keyPrefix || 'convo::'
   }
