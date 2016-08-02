@@ -18,7 +18,7 @@ const Slapp = require('slapp')
 const BeepBoopConvoStore = require('slapp-convo-beepboop')
 
 var slapp = Slapp({
-  convo_store: new BeepBoopConvoStore(),
+  convo_store: BeepBoopConvoStore(),
 })
 ```
 
