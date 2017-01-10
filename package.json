@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/BeepBoopHQ/slapp-convo-beepboop#readme",
   "dependencies": {
-    "beepboop-persist": "0.0.8"
+    "beepboop-persist": "0.2.1"
   },
   "devDependencies": {
     "standard": "^7.1.2"
